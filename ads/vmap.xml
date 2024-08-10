@@ -1,0 +1,51 @@
+<vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0.1">
+    <vmap:AdBreak timeOffset="start" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:00:10.542" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:00:20.972" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:00:30.317" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:05:00.018" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:00:25.803" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+    <vmap:AdBreak timeOffset="00:00:54.473" breakType="linear">
+        <vmap:AdSource allowMultipleAds="undefined" followRedirects="undefined">
+            <vmap:AdTagURI templateType="vast3">
+                <![CDATA[https://tv.springserve.com/vast/703055??w=1920&h=1080&cb=&ip=&ua=&did=&device_make=&device_model=&pod_max_dur=90&app_name=&app_bundle=&app_store_url=&dnt=&gdpr_consent=&gdpr=&us_privacy=&coppa=&lmt=0&channel_name=nntv&language=eng&network_name=nichenetwork.tv&ifa_type=]]>
+            </vmap:AdTagURI>
+        </vmap:AdSource>
+    </vmap:AdBreak>
+</vmap:VMAP>

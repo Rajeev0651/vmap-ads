@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "video.js": "^8.12.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "videojs-ima": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "videoplayer",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

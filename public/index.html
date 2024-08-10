@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Detection with Ads Control</title>
+  <!-- Include clmtrackr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clmtrackr/1.1.1/clmtrackr.min.js"></script>
+  <link rel="stylesheet" href="//googleads.github.io/videojs-ima/node_modules/video.js/dist/video-js.min.css" />
+  <link rel="stylesheet" href="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.css" />
+  <link rel="stylesheet" href="//googleads.github.io/videojs-ima/dist/videojs.ima.css" />
+  <style>
+    video, canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <video id="content_video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360">
+    <source src="../videos/sample-video.mp4" type="video/mp4" />
+  </video>
+  <video id="video" width="640" height="360" autoplay muted style="display:none;"></video>
+  <script src="//googleads.github.io/videojs-ima/node_modules/video.js/dist/video.min.js"></script>
+  <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+  <script src="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
+  <script src="//googleads.github.io/videojs-ima/dist/videojs.ima.js"></script>
+  <script>
+    // Initialize the video player
+    const player = videojs('content_video');
+
+    // Configure IMA plugin
+    player.ima({
+      adTagUrl: "http://localhost:5500/ads/vmap.xml",
+      vpaidMode: google.ima.ImaSdkSettings.VpaidMode.ENABLED
+    });
+
+
+
+    // Initialize the face tracker
+    const tracker = new clm.tracker();
+    tracker.init();
+
+    async function setupCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+        const videoElement = document.getElementById('video');
+        videoElement.srcObject = stream;
+        videoElement.onloadedmetadata = () => {
+          videoElement.play();
+          tracker.start(videoElement);
+          monitorFace();
+        };
+      } catch (error) {
+        console.error('Error accessing webcam: ', error);
+      }
+    }
+
+    function checkFace() {
+      const positions = tracker.getCurrentPosition();
+      return positions && positions.length > 0;
+    }
+
+    function monitorFace() {
+      let wasPaused = false;
+      setInterval(() => {
+        if (player.ads && player.ads.isAdPlaying()) {
+            const faceDetected = checkFace();
+            console.log(!faceDetected);
+            console.log(!wasPaused);
+            if (!faceDetected && !wasPaused) {
+              console.log('No face detected. Pausing ad...');
+              player.ima.pauseAd()
+              wasPaused = true;
+            } else if (faceDetected && wasPaused) {
+              console.log('Face detected. Resuming ad...');
+              player.ima.resumeAd()
+              wasPaused = false;
+            }
+        }
+      }, 1000);
+    }
+
+    setupCamera();
+  </script>
+</body>
+</html>

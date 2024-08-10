@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clmtrackr Face Detection</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clmtrackr/1.1.1/clmtrackr.min.js"></script>
+  <style>
+    video, canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" width="720" height="560" autoplay muted></video>
+  <script>
+    const video = document.getElementById('video');
+
+    async function setupCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+        video.srcObject = stream;
+        return new Promise(resolve => {
+          video.onloadedmetadata = () => {
+            resolve();
+          };
+        });
+      } catch (error) {
+        console.error('Error accessing webcam: ', error);
+      }
+    }
+
+    async function startTracking() {
+      const tracker = new clm.tracker();
+      tracker.init();
+      tracker.start(video);
+      const canvas = document.createElement('canvas');
+      document.body.append(canvas);
+      const ctx = canvas.getContext('2d');
+      canvas.width = video.width;
+      canvas.height = video.height;
+
+      let lastFaceDetected = false;
+
+      setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const positions = tracker.getCurrentPosition();
+        if (positions) {
+          positions.forEach(position => {
+            const [x, y] = position;
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            ctx.fill();
+          });
+          if (!lastFaceDetected) {
+            console.log('Face detected');
+            lastFaceDetected = true;
+          }
+        } else {
+          if (lastFaceDetected) {
+            console.log('No face detected');
+            lastFaceDetected = false;
+          }
+        }
+      }, 100);
+    }
+
+    setupCamera().then(startTracking);
+  </script>
+</body>
+</html>
